@@ -11,6 +11,10 @@ export default function Root() {
         links={[
           { title: 'Home', route: '/' },
           { title: 'Shop', route: '/shop' },
+          {
+            title: <span className='material-symbols-outlined'>shopping_cart</span>,
+            route: '/cart',
+          },
         ]}
       />
       <div id='detail' className={navigation.state === 'loading' ? 'loading' : ''}>
