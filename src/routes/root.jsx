@@ -6,7 +6,13 @@ export default function Root() {
 
   return (
     <>
-      <Header logo='..src/assets/react.svg' links={['Home', 'Shop']} />
+      <Header
+        logo='..src/assets/react.svg'
+        links={[
+          { title: 'Home', route: '/' },
+          { title: 'Shop', route: '/shop' },
+        ]}
+      />
       <div id='detail' className={navigation.state === 'loading' ? 'loading' : ''}>
         <Outlet />
       </div>

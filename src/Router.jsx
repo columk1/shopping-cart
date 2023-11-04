@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './routes/root'
 import ErrorPage from './ErrorPage.jsx'
 import Hero from './components/Hero/Hero'
+import Shop from './components/Shop/Shop.jsx'
 // import Profile from './Profile.jsx'
 
 const Router = () => {
@@ -13,13 +14,13 @@ const Router = () => {
       children: [{ index: true, element: <Hero /> }],
     },
     {
-      path: 'shop/:product',
-      // element: <Product />,
-      // children: [
-      //   { index: true, element: <DefaultProfile /> },
-      //   { path: 'spinach', element: <Spinach /> },
-      //   { path: 'popeye', element: <Popeye /> },
-      // ],
+      path: 'shop',
+      element: <Root />,
+      children: [
+        { index: true, element: <Shop /> },
+        // { path: 'spinach', element: <Spinach /> },
+        // { path: 'popeye', element: <Popeye /> },
+      ],
     },
   ])
   return <RouterProvider router={router} />

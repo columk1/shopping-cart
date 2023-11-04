@@ -1,12 +1,15 @@
 import styles from './NavBar.module.css'
-import NavLink from '../NavLink/NavLink.jsx'
+// import NavLink from '../NavLink/NavLink.jsx'
+import { NavLink } from 'react-router-dom'
 
 const NavBar = ({ links }) => {
   return (
     <nav>
       <ul>
         {links.map((link) => (
-          <NavLink key={link} link={link} />
+          <li key={link.title}>
+            <NavLink to={link.route}>{link.title}</NavLink>
+          </li>
         ))}
       </ul>
     </nav>
