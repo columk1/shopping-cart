@@ -4,7 +4,8 @@ import NavBar from '../NavBar/NavBar'
 const Header = ({ logo, links }) => {
   return (
     <header className={styles.header}>
-      <img src={logo} alt='logo' className={styles.logo} />
+      {/* <img src={logo} alt='logo' className={styles.logo} /> */}
+      <h1 className={styles.logo}>StuffShop</h1>
       <NavBar links={links} />
     </header>
   )
