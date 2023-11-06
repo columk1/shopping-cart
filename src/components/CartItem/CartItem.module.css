@@ -8,6 +8,7 @@
 
 .item:last-child {
   border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
 }
 
 .image {
@@ -58,6 +59,9 @@
 input {
   width: 1rem;
   text-align: center;
+  background-color: #fff;
+  color: #333;
+  font-weight: bold;
 }
 
 .price,
