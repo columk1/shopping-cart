@@ -2,7 +2,7 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Root from './routes/root'
+import Root, { loader as rootLoader } from './routes/root'
 import ErrorPage from './ErrorPage.jsx'
 import Hero from './components/Hero/Hero'
 import Shop, { loader as productLoader } from './routes/shop.jsx'
@@ -31,6 +31,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
+    loader: rootLoader,
     children: [
       { index: true, element: <Hero /> },
       {

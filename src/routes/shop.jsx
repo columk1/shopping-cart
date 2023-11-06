@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Products from '../components/Products/Products.jsx'
 import Loading from '../components/Loading/Loading.jsx'
+import { useOutletContext } from 'react-router-dom'
 
 export async function getProduct(id) {
   // const product = data.find((product) => product.id === id)
@@ -20,31 +21,40 @@ export async function loader({ params }) {
 }
 
 const Shop = () => {
-  const [data, setData] = useState([])
+  const { products } = useOutletContext()
+
+  const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products')
-        if (!response.ok) {
-          throw new Error(`This is an HTTP error: The status is ${response.status}`)
+    if (products) {
+      setData(products)
+      setLoading(false)
+    } else {
+      console.log('not products')
+      const getData = async () => {
+        try {
+          const response = await fetch('https://fakestoreapi.com/products')
+          if (!response.ok) {
+            throw new Error(`This is an HTTP error: The status is ${response.status}`)
+          }
+          let actualData = await response.json()
+          setData(actualData)
+          setError(null)
+        } catch (err) {
+          setError(err.message)
+          setData(null)
+        } finally {
+          setLoading(false)
         }
-        let actualData = await response.json()
-        setData(actualData)
-        setError(null)
-      } catch (err) {
-        setError(err.message)
-        setData(null)
-      } finally {
-        setLoading(false)
       }
+      getData()
     }
-    getData()
   }, [])
 
   return error ? error : loading ? <Loading /> : <Products products={data} />
+  // return products ? <Products products={products} /> : <Loading />
 }
 
 export default Shop

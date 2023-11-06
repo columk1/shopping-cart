@@ -62,6 +62,21 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.loading {
+  color: black;
+}
+
+.loading div:not(first-child) {
+  visibility: hidden;
+}
+
+.loading:before {
+  height: 50vh;
+  display: grid;
+  place-items: center;
+  content: 'loading...';
+}
+
 /* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

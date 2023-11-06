@@ -1,10 +1,13 @@
 import styles from './Product.module.css'
 import { useParams, useLoaderData } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom'
 
 const Product = () => {
-  //   const id = useParams()
   const { product } = useLoaderData()
-  console.log(product)
+
+  // const { products } = useOutletContext()
+  // const id = useParams().productId
+  // const product = products.find((product) => product.id == id)
 
   return (
     <div className={styles.container}>
