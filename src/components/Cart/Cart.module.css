@@ -1,0 +1,8 @@
+.cart {
+  padding: 0 2rem;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+}

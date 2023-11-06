@@ -1,6 +1,23 @@
 import { useEffect, useState } from 'react'
-import Products from '../Products/Products.jsx'
-import Loading from '../Loading/Loading.jsx'
+import Products from '../components/Products/Products.jsx'
+import Loading from '../components/Loading/Loading.jsx'
+
+export async function getProduct(id) {
+  // const product = data.find((product) => product.id === id)
+  const product = await (await fetch(`https://fakestoreapi.com/products/${id}`)).json()
+  return product ?? null
+}
+
+export async function loader({ params }) {
+  const product = await getProduct(params.productId)
+  if (!product) {
+    throw new Response('', {
+      status: 404,
+      statusText: 'Not Found',
+    })
+  }
+  return { product }
+}
 
 const Shop = () => {
   const [data, setData] = useState([])

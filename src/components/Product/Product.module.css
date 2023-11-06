@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  padding: 2rem;
+  gap: 6rem;
+}
+
+.productImg img {
+  width: 40vw;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.description {
+  margin-bottom: 1.5rem;
+}
+
+input[type='number'] {
+  width: 2.2rem;
+  padding: 0.15rem;
+}
+
+.inputGroup {
+  /* margin-bottom: 0.3rem; */
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form button {
+  width: 8rem;
+  background-color: #333;
+}
