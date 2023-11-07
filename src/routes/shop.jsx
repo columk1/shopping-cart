@@ -22,6 +22,7 @@ export async function loader({ params }) {
 
 const Shop = () => {
   const { products } = useOutletContext()
+  const { cartItems, setCartItems } = useOutletContext()
 
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
@@ -52,6 +53,10 @@ const Shop = () => {
       getData()
     }
   }, [])
+
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product])
+  }
 
   return error ? error : loading ? <Loading /> : <Products products={data} />
   // return products ? <Products products={products} /> : <Loading />

@@ -1,6 +1,10 @@
 import styles from './Cart.module.css'
 import CartItem from '../CartItem/CartItem'
-const Cart = ({ cartItems }) => {
+import { useOutletContext } from 'react-router-dom'
+
+const Cart = () => {
+  const { cartItems, setCartItems } = useOutletContext()
+  console.log('Cart Renders')
   return (
     <section className={styles.cart}>
       <h2 className={styles.title}>Shopping Cart</h2>

@@ -1,13 +1,30 @@
 import styles from './Product.module.css'
-import { useParams, useLoaderData } from 'react-router-dom'
-import { useOutletContext } from 'react-router-dom'
+import { useParams, useLoaderData, useOutletContext, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const Product = () => {
   const { product } = useLoaderData()
+  const { cartItems, setCartItems } = useOutletContext()
+
+  let navigate = useNavigate()
+
+  const addToCart = (e) => {
+    e.preventDefault()
+    console.log(product)
+    console.log(cartItems)
+    setCartItems([...cartItems, product])
+    navigate('/cart')
+  }
 
   // const { products } = useOutletContext()
   // const id = useParams().productId
   // const product = products.find((product) => product.id == id)
+
+  // const [product, setProduct] = useState(fetchedProduct)
+
+  // useEffect(() => {
+  //   if (contextProduct) setProduct(contextProduct)
+  // }, [])
 
   return (
     <div className={styles.container}>
@@ -23,7 +40,7 @@ const Product = () => {
             <label htmlFor='quantity'>Quantity</label>
             <input type='number' id='quantity' name='quantity' defaultValue='1'></input>
           </div>
-          <button className='addToCart btn' type='submit'>
+          <button className='addToCart btn' type='submit' onClick={addToCart}>
             Add to cart
           </button>
         </form>
