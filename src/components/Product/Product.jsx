@@ -5,15 +5,28 @@ import { useState, useEffect } from 'react'
 const Product = () => {
   const { product } = useLoaderData()
   const { cartItems, setCartItems } = useOutletContext()
+  const [quantity, setQuantity] = useState(1)
 
   let navigate = useNavigate()
 
   const addToCart = (e) => {
     e.preventDefault()
-    console.log(product)
-    console.log(cartItems)
-    setCartItems([...cartItems, product])
+    updateCart()
     navigate('/cart')
+  }
+
+  const updateCart = () => {
+    let newCartItem = { ...product, quantity: quantity }
+    if (cartItems.find((item) => item.id === newCartItem.id)) {
+      let newCartItems = cartItems.map((item) => {
+        return item.id === newCartItem.id
+          ? { ...item, quantity: item.quantity + newCartItem.quantity }
+          : item
+      })
+      setCartItems(newCartItems)
+    } else {
+      setCartItems([...cartItems, newCartItem])
+    }
   }
 
   // const { products } = useOutletContext()
