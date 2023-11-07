@@ -4,9 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--primary-dark); */
-  /* background-color: lightgray; */
-  color: var(--primary-light);
   color: #333;
 }
 
@@ -29,7 +26,6 @@ h1 {
 .hero-content p {
   width: 82%;
   font-size: 1.2em;
-  color: var(--secondary-light);
 }
 
 .heroImg {
@@ -42,16 +38,14 @@ h1 {
   justify-content: center;
   align-items: center;
   border-radius: 0.5em;
+  background-image: linear-gradient(to right top, #051937, #00476e, #007b9f, #00b3c1, #12ebd1);
+  color: white;
 }
 
-button {
-  margin: 0.7em 0;
-  color: var(--primary-light);
-  color: white;
-  font-size: 1.1em;
-  font-weight: bold;
-  padding: 0.5em 1.8em;
-  background-color: var(--accent);
-  border: none;
-  border-radius: 0.5em;
+.heroImg span {
+  font-size: 2rem;
+}
+
+.hero a.pending button {
+  opacity: 50%;
 }

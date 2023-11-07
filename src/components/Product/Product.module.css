@@ -4,8 +4,17 @@
   gap: 6rem;
 }
 
+.productImg {
+  max-width: 30vw;
+  display: flex;
+  justify-content: center;
+}
+
 .productImg img {
-  width: 40vw;
+  max-width: 20vw;
+  max-height: 70vh;
+  margin: 0 2rem;
+  object-fit: contain;
 }
 
 .price {

@@ -1,9 +1,8 @@
 import styles from './Cart.module.css'
 import CartItem from '../CartItem/CartItem'
-import { useOutletContext } from 'react-router-dom'
+import { useOutletContext, Link } from 'react-router-dom'
 
 const Cart = () => {
-  console.log('Cart Renders')
   const { cartItems, setCartItems } = useOutletContext()
 
   const updateQuantity = (id, newQuantity) => {
@@ -11,7 +10,6 @@ const Cart = () => {
     const newCartItems = cartItems.map((item) => {
       return item.id === id ? { ...item, quantity: newQuantity } : item
     })
-    console.log(newCartItems)
     setCartItems(newCartItems)
   }
 
@@ -22,22 +20,33 @@ const Cart = () => {
   return (
     <section className={styles.cart}>
       <h2 className={styles.title}>Shopping Cart</h2>
-      <div className={styles.cartItems}>
-        {cartItems.map((item) => (
-          <CartItem
-            key={item.id}
-            product={item}
-            onChange={updateQuantity}
-            onDelete={deleteCartItem}
-          />
-        ))}
-      </div>
-      <div className={styles.checkout}>
-        <p className={styles.total}>
-          Total: ${cartItems.reduce((a, b) => a + b.price * b.quantity, 0)}
-        </p>
-        <button className={styles.btn}>Checkout</button>
-      </div>
+      {cartItems.length === 0 ? (
+        <div className={styles.status}>
+          <h3>Your cart is empty</h3>
+          <Link to={'/shop'}>
+            <button>Start Shopping</button>
+          </Link>
+        </div>
+      ) : (
+        <>
+          <div className={styles.cartItems}>
+            {cartItems.map((item) => (
+              <CartItem
+                key={item.id}
+                product={item}
+                onChange={updateQuantity}
+                onDelete={deleteCartItem}
+              />
+            ))}
+          </div>
+          <div className={styles.checkout}>
+            <p className={styles.total}>
+              Total: ${cartItems.reduce((a, b) => a + b.price * b.quantity, 0)}
+            </p>
+            <button className={styles.btn}>Checkout</button>
+          </div>
+        </>
+      )}
     </section>
   )
 }

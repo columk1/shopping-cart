@@ -24,7 +24,7 @@ const CartItem = ({ product, onChange, onDelete }) => {
       </Link>
       <div className={styles.quantity}>
         <button onClick={decrement}>-</button>
-        <input type='text' name='quantity' value={product.quantity}></input>
+        <input type='text' name='quantity' value={product.quantity} readOnly></input>
         <button onClick={increment}>+</button>
       </div>
       <div>

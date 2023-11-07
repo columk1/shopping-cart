@@ -3,9 +3,12 @@ import { useParams, useLoaderData, useOutletContext, useNavigate } from 'react-r
 import { useState, useEffect } from 'react'
 
 const Product = () => {
-  const { product } = useLoaderData()
-  const { cartItems, setCartItems } = useOutletContext()
+  // const { product } = useLoaderData()
+  const { products, cartItems, setCartItems } = useOutletContext()
   const [quantity, setQuantity] = useState(1)
+
+  const id = useParams().productId
+  const product = products.find((product) => product.id == id)
 
   let navigate = useNavigate()
 

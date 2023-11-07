@@ -3,23 +3,6 @@ import { useState, useEffect } from 'react'
 import Header from '../components/Header/Header.jsx'
 import Loading from '../components/Loading/Loading.jsx'
 
-// let cartData = [
-//   {
-//     id: 1,
-//     title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-//     price: 109.95,
-//     image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-//     quantity: 1,
-//   },
-//   {
-//     id: 2,
-//     title: 'Mens Casual Premium Slim Fit T-Shirts ',
-//     price: 22.3,
-//     image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-//     quantity: 2,
-//   },
-// ]
-
 export async function loader() {
   // let products
   // setTimeout(async () => {
@@ -43,7 +26,6 @@ export default function Root() {
   useEffect(() => {
     const sessionCart = JSON.parse(sessionStorage.getItem('cart'))
     console.log('Session Retrieval')
-    console.log(sessionCart)
     if (sessionCart) setCartItems(sessionCart)
   }, [])
 

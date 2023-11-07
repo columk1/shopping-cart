@@ -54,10 +54,6 @@ const Shop = () => {
     }
   }, [])
 
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product])
-  }
-
   return error ? error : loading ? <Loading /> : <Products products={data} />
   // return products ? <Products products={products} /> : <Loading />
 }

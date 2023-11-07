@@ -21,3 +21,14 @@
   margin-bottom: 0;
   font-weight: bold;
 }
+
+.cart a {
+  color: #333;
+}
+
+.status {
+  margin: 4rem;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+}
