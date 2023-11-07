@@ -51,7 +51,13 @@ const Product = () => {
         <form className={styles.form}>
           <div className={styles.inputGroup}>
             <label htmlFor='quantity'>Quantity</label>
-            <input type='number' id='quantity' name='quantity' defaultValue='1'></input>
+            <input
+              type='number'
+              id='quantity'
+              name='quantity'
+              value={quantity}
+              onChange={(e) => setQuantity(parseInt(e.target.value))}
+            ></input>
           </div>
           <button className='addToCart btn' type='submit' onClick={addToCart}>
             Add to cart
