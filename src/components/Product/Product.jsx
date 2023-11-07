@@ -59,7 +59,7 @@ const Product = () => {
               onChange={(e) => setQuantity(parseInt(e.target.value))}
             ></input>
           </div>
-          <button className='addToCart btn' type='submit' onClick={addToCart}>
+          <button className={styles.btn} type='submit' onClick={addToCart}>
             Add to cart
           </button>
         </form>

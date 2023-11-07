@@ -1,4 +1,5 @@
 import styles from './CartItem.module.css'
+import { Link } from 'react-router-dom'
 
 const CartItem = ({ product, onChange, onDelete }) => {
   const increment = () => onChange(product.id, product.quantity + 1)
@@ -10,19 +11,25 @@ const CartItem = ({ product, onChange, onDelete }) => {
       <button className={styles.deleteBtn} onClick={deleteProduct}>
         x
       </button>
-      <div className={styles.image}>
-        <img src={product.image} alt={product.title} />
-      </div>
-      <div className={styles.info}>
-        <span className={styles.price}>{product.title}</span>
-        <span>${product.price}</span>
-      </div>
+      <Link to={`/shop/${product.id}`}>
+        <div className={styles.productInfo}>
+          <div className={styles.image}>
+            <img src={product.image} alt={product.title} />
+          </div>
+          <div className={styles.info}>
+            <span className={styles.price}>{product.title}</span>
+            <span>${product.price}</span>
+          </div>
+        </div>
+      </Link>
       <div className={styles.quantity}>
         <button onClick={decrement}>-</button>
         <input type='text' name='quantity' value={product.quantity}></input>
         <button onClick={increment}>+</button>
       </div>
-      <div className={styles.totalPrice}>${product.price}</div>
+      <div>
+        <span className={styles.totalPrice}>${product.price * product.quantity}</span>
+      </div>
     </div>
   )
 }

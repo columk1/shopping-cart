@@ -32,7 +32,12 @@ const Cart = () => {
           />
         ))}
       </div>
-      <button className={styles.checkoutBtn}>Checkout</button>
+      <div className={styles.checkout}>
+        <p className={styles.total}>
+          Total: ${cartItems.reduce((a, b) => a + b.price * b.quantity, 0)}
+        </p>
+        <button className={styles.btn}>Checkout</button>
+      </div>
     </section>
   )
 }
