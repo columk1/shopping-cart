@@ -1,12 +1,15 @@
 import styles from './CartItem.module.css'
 
-const CartItem = ({ product, onChange }) => {
+const CartItem = ({ product, onChange, onDelete }) => {
   const increment = () => onChange(product.id, product.quantity + 1)
   const decrement = () => onChange(product.id, product.quantity - 1)
+  const deleteProduct = () => onDelete(product.id)
 
   return (
     <div className={styles.item}>
-      <button className={styles.deleteBtn}>x</button>
+      <button className={styles.deleteBtn} onClick={deleteProduct}>
+        x
+      </button>
       <div className={styles.image}>
         <img src={product.image} alt={product.title} />
       </div>

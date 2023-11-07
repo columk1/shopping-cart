@@ -15,12 +15,21 @@ const Cart = () => {
     setCartItems(newCartItems)
   }
 
+  const deleteCartItem = (id) => {
+    setCartItems(cartItems.filter((item) => item.id !== id))
+  }
+
   return (
     <section className={styles.cart}>
       <h2 className={styles.title}>Shopping Cart</h2>
       <div className={styles.cartItems}>
         {cartItems.map((item) => (
-          <CartItem key={item.id} product={item} onChange={updateQuantity} />
+          <CartItem
+            key={item.id}
+            product={item}
+            onChange={updateQuantity}
+            onDelete={deleteCartItem}
+          />
         ))}
       </div>
       <button className={styles.checkoutBtn}>Checkout</button>
