@@ -1,6 +1,9 @@
 import styles from './CartItem.module.css'
 
-const CartItem = ({ product }) => {
+const CartItem = ({ product, onChange }) => {
+  const increment = () => onChange(product.id, product.quantity + 1)
+  const decrement = () => onChange(product.id, product.quantity - 1)
+
   return (
     <div className={styles.item}>
       <button className={styles.deleteBtn}>x</button>
@@ -12,9 +15,9 @@ const CartItem = ({ product }) => {
         <span>${product.price}</span>
       </div>
       <div className={styles.quantity}>
-        <button>-</button>
-        <input type='text' name='quantity' value='1'></input>
-        <button>+</button>
+        <button onClick={decrement}>-</button>
+        <input type='text' name='quantity' value={product.quantity}></input>
+        <button onClick={increment}>+</button>
       </div>
       <div className={styles.totalPrice}>${product.price}</div>
     </div>
