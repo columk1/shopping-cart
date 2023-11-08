@@ -39,6 +39,10 @@ a:hover {
   color: #535bf2;
 }
 
+nav a.active {
+  color: rgb(81, 0, 255);
+}
+
 body {
   margin: 0 auto;
   padding: 0 6vw;
@@ -74,14 +78,20 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-nav a.active {
-  color: rgb(81, 0, 255);
-}
-
-#error-page {
+.error-container {
+  height: 50vh;
   display: grid;
   place-items: center;
 }
+
+.error-page {
+  display: grid;
+  place-items: center;
+}
+
+/* .error-page a {
+  margin-top: 1rem;
+} */
 
 li .material-symbols-outlined {
 }

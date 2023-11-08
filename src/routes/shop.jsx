@@ -33,29 +33,34 @@ const Shop = () => {
       setData(products)
       setLoading(false)
     } else {
-      console.log('not products')
-      const getData = async () => {
-        try {
-          const response = await fetch('https://fakestoreapi.com/products')
-          if (!response.ok) {
-            throw new Error(`This is an HTTP error: The status is ${response.status}`)
-          }
-          let actualData = await response.json()
-          setData(actualData)
-          setError(null)
-        } catch (err) {
-          setError(err.message)
-          setData(null)
-        } finally {
-          setLoading(false)
-        }
-      }
-      getData()
+      throw new Error('Server error')
     }
   }, [])
-
-  return error ? error : loading ? <Loading /> : <Products products={data} />
-  // return products ? <Products products={products} /> : <Loading />
+  return loading ? <Loading /> : <Products products={data} />
 }
+//       console.log('no context products')
+//       const getData = async () => {
+//         try {
+//           const response = await fetch('https://fakestoreapi.com/products')
+//           if (!response.ok) {
+//             throw new Error(`This is an HTTP error: The status is ${response.status}`)
+//           }
+//           let actualData = await response.json()
+//           setData(actualData)
+//           setError(null)
+//         } catch (err) {
+//           setError(err.message)
+//           setData(null)
+//         } finally {
+//           setLoading(false)
+//         }
+//       }
+//       getData()
+//     }
+//   }, [])
+
+//   return error ? error : loading ? <Loading /> : <Products products={data} />
+//   // return products ? <Products products={products} /> : <Loading />
+// }
 
 export default Shop

@@ -19,6 +19,7 @@ function load(key) {
 }
 
 export default function Root() {
+  console.log('Root Rendering')
   const navigation = useNavigation()
   const { products } = useLoaderData()
   const [cartItems, setCartItems] = useState(load('cart'))
