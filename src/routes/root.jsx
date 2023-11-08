@@ -1,17 +1,7 @@
-import { Outlet, useNavigation, useLoaderData } from 'react-router-dom'
+import { Outlet, useNavigation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Header from '../components/Header/Header.jsx'
 import Loading from '../components/Loading/Loading.jsx'
-
-export async function loader() {
-  // let products
-  // setTimeout(async () => {
-  //   products = await (await fetch('https://fakestoreapi.com/products')).json()
-  // }, 2000)
-  const products = await (await fetch('https://fakestoreapi.com/products')).json()
-
-  return { products }
-}
 
 function load(key) {
   const item = window.sessionStorage.getItem(key)
@@ -19,9 +9,7 @@ function load(key) {
 }
 
 export default function Root() {
-  console.log('Root Rendering')
   const navigation = useNavigation()
-  const { products } = useLoaderData()
   const [cartItems, setCartItems] = useState(load('cart'))
 
   useEffect(() => {
@@ -52,7 +40,7 @@ export default function Root() {
         {navigation.state === 'loading' ? (
           <Loading />
         ) : (
-          <Outlet context={{ products, cartItems, setCartItems }} />
+          <Outlet context={{ cartItems, setCartItems }} />
         )}
       </div>
     </>

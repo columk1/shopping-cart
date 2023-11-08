@@ -1,27 +1,14 @@
 import { useEffect, useState } from 'react'
-import Products from '../components/Products/Products.jsx'
 import Loading from '../components/Loading/Loading.jsx'
-import { useOutletContext } from 'react-router-dom'
+import { Outlet, useOutletContext, useLoaderData } from 'react-router-dom'
 
-export async function getProduct(id) {
-  // const product = data.find((product) => product.id === id)
-  const product = await (await fetch(`https://fakestoreapi.com/products/${id}`)).json()
-  return product ?? null
-}
-
-export async function loader({ params }) {
-  const product = await getProduct(params.productId)
-  if (!product) {
-    throw new Response('', {
-      status: 404,
-      statusText: 'Not Found',
-    })
-  }
-  return { product }
+export async function loader() {
+  const products = await (await fetch('https://fakestoreapi.com/products')).json()
+  return { products }
 }
 
 const Shop = () => {
-  const { products } = useOutletContext()
+  const { products } = useLoaderData()
   const { cartItems, setCartItems } = useOutletContext()
 
   const [data, setData] = useState(null)
@@ -36,7 +23,7 @@ const Shop = () => {
       throw new Error('Server error')
     }
   }, [])
-  return loading ? <Loading /> : <Products products={data} />
+  return loading ? <Loading /> : <Outlet context={{ products, cartItems, setCartItems }} />
 }
 //       console.log('no context products')
 //       const getData = async () => {

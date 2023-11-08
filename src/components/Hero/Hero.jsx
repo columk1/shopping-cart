@@ -9,13 +9,7 @@ const Hero = () => {
           This website has some subtext that goes here under the main title. It's a smaller font and
           it says something about shoes.
         </p>
-        <NavLink
-          to={'/shop'}
-          // When the user is at the URL in the NavLink, then isActive will be true. When it's about to be active (the data is still loading) then isPending will be true.
-          className={({ isActive, isPending }) =>
-            isActive ? 'active' : isPending ? 'pending' : ''
-          }
-        >
+        <NavLink to={'/shop'}>
           <button>Start Shopping</button>
         </NavLink>
       </div>

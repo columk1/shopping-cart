@@ -1,6 +1,6 @@
 import styles from './Product.module.css'
-import { useParams, useLoaderData, useOutletContext, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useParams, useOutletContext, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const Product = () => {
   // const { product } = useLoaderData()
@@ -31,16 +31,6 @@ const Product = () => {
       setCartItems([...cartItems, newCartItem])
     }
   }
-
-  // const { products } = useOutletContext()
-  // const id = useParams().productId
-  // const product = products.find((product) => product.id == id)
-
-  // const [product, setProduct] = useState(fetchedProduct)
-
-  // useEffect(() => {
-  //   if (contextProduct) setProduct(contextProduct)
-  // }, [])
 
   return (
     <div className={styles.container}>

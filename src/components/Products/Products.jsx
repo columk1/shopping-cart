@@ -1,8 +1,9 @@
 import Card from '../Card/Card'
 import styles from './Products.module.css'
-// import products from '../../products.js'
+import { useOutletContext } from 'react-router-dom'
 
-const Products = ({ products, addToCart }) => {
+const Products = () => {
+  const { products } = useOutletContext()
   return (
     <section className={styles.shop}>
       <div className={styles.grid}>
