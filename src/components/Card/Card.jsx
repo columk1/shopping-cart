@@ -1,5 +1,7 @@
 import styles from './Card.module.css'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 const Card = (props) => {
   return (
     <Link to={'/shop/' + props.id}>
@@ -14,6 +16,13 @@ const Card = (props) => {
       </div>
     </Link>
   )
+}
+
+Card.propTypes = {
+  id: PropTypes.number,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  price: PropTypes.number,
 }
 
 export default Card

@@ -12,13 +12,13 @@ const Shop = () => {
   const { products } = useLoaderData()
   const { cartItems, setCartItems } = useOutletContext()
 
-  const [data, setData] = useState(null)
-  const [error, setError] = useState(null)
+  // const [data, setData] = useState(null)
+  // const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (products) {
-      setData(products)
+      // setData(products)
       setLoading(false)
     } else {
       throw new Error('Server error')

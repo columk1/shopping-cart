@@ -1,6 +1,6 @@
 import styles from './NavBar.module.css'
-// import NavLink from '../NavLink/NavLink.jsx'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const NavBar = ({ links }) => {
   return (
@@ -14,6 +14,10 @@ const NavBar = ({ links }) => {
       </ul>
     </nav>
   )
+}
+
+NavBar.propTypes = {
+  links: PropTypes.array,
 }
 
 export default NavBar

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import App from '../src/App.jsx'
-import { userEvent } from '@testing-library/user-event'
+// import { userEvent } from '@testing-library/user-event'
 
 describe('App', async () => {
   it('Renders the homepage (Root.jsx with Hero.jsx in the outlet)', () => {

@@ -1,5 +1,6 @@
 import styles from './CartItem.module.css'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const CartItem = ({ product, onChange, onDelete }) => {
   const increment = () => onChange(product.id, product.quantity + 1)
@@ -33,4 +34,11 @@ const CartItem = ({ product, onChange, onDelete }) => {
     </div>
   )
 }
+
+CartItem.propTypes = {
+  product: PropTypes.object,
+  onChange: PropTypes.func,
+  onDelete: PropTypes.func,
+}
+
 export default CartItem

@@ -6,7 +6,7 @@ import Hero from './components/Hero/Hero'
 import Shop, { loader as shopLoader } from './routes/shop.jsx'
 import Products from './components/Products/Products'
 import Product from './components/Product/Product'
-import Cart from './routes/Cart/Cart.jsx'
+import Cart from './routes/cart/Cart.jsx'
 
 const router = createBrowserRouter([
   {
