@@ -17,6 +17,8 @@ const Cart = () => {
     setCartItems(cartItems.filter((item) => item.id !== id))
   }
 
+  const sum = (numArray) => numArray.reduce((a, b) => a + b.price * b.quantity, 0).toFixed(2)
+
   return (
     <section className={styles.cart}>
       <h2 className={styles.title}>Shopping Cart</h2>
@@ -40,9 +42,7 @@ const Cart = () => {
             ))}
           </div>
           <div className={styles.checkout}>
-            <p className={styles.total}>
-              Total: ${cartItems.reduce((a, b) => a + b.price * b.quantity, 0)}
-            </p>
+            <p className={styles.total}>Total: ${sum(cartItems)}</p>
             <button className={styles.btn}>Checkout</button>
           </div>
         </>

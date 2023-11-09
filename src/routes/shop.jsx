@@ -3,7 +3,8 @@ import Loading from '../components/Loading/Loading.jsx'
 import { Outlet, useOutletContext, useLoaderData } from 'react-router-dom'
 
 export async function loader() {
-  const products = await (await fetch('https://fakestoreapi.com/products')).json()
+  const data = await (await fetch('https://fakestoreapi.com/products')).json()
+  const products = data.map((product) => ({ ...product, price: product.price.toFixed(2) }))
   return { products }
 }
 

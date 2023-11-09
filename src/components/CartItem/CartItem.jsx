@@ -28,7 +28,7 @@ const CartItem = ({ product, onChange, onDelete }) => {
         <button onClick={increment}>+</button>
       </div>
       <div>
-        <span className={styles.totalPrice}>${product.price * product.quantity}</span>
+        <span className={styles.totalPrice}>${(product.price * product.quantity).toFixed(2)}</span>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ const Card = (props) => {
         </div>
         <div className={styles.info}>
           <p className={styles.title}>{props.title}</p>
-          <p className={styles.price}>{`$${props.price.toFixed(2)}`}</p>
+          <p className={styles.price}>{`$${props.price}`}</p>
         </div>
       </div>
     </Link>
