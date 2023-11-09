@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > Renders the homepage (Root.jsx with Hero.jsx in the outlet) 1`] = `
+<div>
+  <header
+    class="_header_63c2ea"
+  >
+    <h1
+      class="_logo_63c2ea"
+    >
+      StuffShop
+    </h1>
+    <nav
+      id="mainNav"
+    >
+      <ul
+        class="_ul_214497"
+      >
+        <li>
+          <a
+            aria-current="page"
+            class="active"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            href="/shop"
+          >
+            Shop
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+            href="/cart"
+          >
+            <span
+              class="material-symbols-outlined"
+            >
+              shopping_cart
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div
+    id="detail"
+  >
+    <section
+      class="_hero_84d173"
+    >
+      <div
+        class="_heroContent_84d173"
+      >
+        <h2
+          class="_h1_84d173"
+        >
+          A revolution begins with new shoes
+        </h2>
+        <p>
+          This website has some subtext that goes here under the main title. It's a smaller font and it says something about shoes.
+        </p>
+        <a
+          class=""
+          href="/shop"
+        >
+          <button>
+            Start Shopping
+          </button>
+        </a>
+      </div>
+      <div
+        class="_heroImg_84d173"
+      >
+        <span
+          class="material-symbols-outlined"
+        >
+          favorite
+        </span>
+      </div>
+    </section>
+  </div>
+</div>
+`;

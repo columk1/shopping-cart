@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.heroContent}>
-        <h1>A revolution begins with new shoes</h1>
+        <h2 className={styles.h1}>A revolution begins with new shoes</h2>
         <p>
           This website has some subtext that goes here under the main title. It's a smaller font and
           it says something about shoes.

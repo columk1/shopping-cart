@@ -1,5 +1,5 @@
 import styles from './Cart.module.css'
-import CartItem from '../CartItem/CartItem'
+import CartItem from '../../components/CartItem/CartItem'
 import { useOutletContext, Link } from 'react-router-dom'
 
 const Cart = () => {
