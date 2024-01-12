@@ -18,3 +18,5 @@ A shopping cart project using React Router.
 ## To Do
 
 - Explore ways to fetch and cache data to reduce loading time
+- Add a counter to the shopping cart navlink
+- Memoization

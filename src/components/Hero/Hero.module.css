@@ -39,10 +39,9 @@
   border-radius: 0.5em;
   background-image: linear-gradient(to right top, #051937, #00476e, #007b9f, #00b3c1, #12ebd1);
   color: white;
-}
-
-.heroImg span {
-  font-size: 2rem;
+  & span {
+    font-size: 2rem;
+  }
 }
 
 .hero a.pending button {
